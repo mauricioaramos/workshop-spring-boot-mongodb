@@ -1,7 +1,9 @@
 package com.mauricioramos.workshopmongo.dto;
 
 import java.io.Serializable;
+import java.util.List;
 
+import com.mauricioramos.workshopmongo.domain.Post;
 import com.mauricioramos.workshopmongo.domain.User;
 
 public class UserDTO implements Serializable{
@@ -10,7 +12,7 @@ public class UserDTO implements Serializable{
 	private String id;
 	private String name;
 	private String email;
-	
+	private List<Post> posts;
 	public UserDTO() {
 		
 	}
@@ -18,6 +20,7 @@ public class UserDTO implements Serializable{
 		this.id = user.getId();
 		this.name = user.getName();
 		this.email = user.getEmail();
+		this.setPosts(user.getPosts());
 	}
 	public String getId() {
 		return id;
@@ -36,6 +39,12 @@ public class UserDTO implements Serializable{
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public List<Post> getPosts() {
+		return posts;
+	}
+	public void setPosts(List<Post> posts) {
+		this.posts = posts;
 	}
 	
 	
